@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="DjikstraAlgoritm1.cs" />
+    <Compile Include="List.cs" />
+    <Compile Include="PriorityQueue.cs" />
+    <Compile Include="Program1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weighted_graph.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
