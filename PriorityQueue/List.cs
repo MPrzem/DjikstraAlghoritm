@@ -163,8 +163,8 @@ namespace two_way_list
         /// </summary>
         public Type[] ToArray()
         {
-            if (ItemCounter <= 0)
-                return null;
+         /*  if (ItemCounter <= 0)
+                return null;*/
             Element iterator = Head;
             Type[] tmpArray = new Type[ItemCounter];
             for (int i = 0; i < tmpArray.Length; i++)

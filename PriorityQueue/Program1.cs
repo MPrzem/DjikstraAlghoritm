@@ -17,6 +17,7 @@ using two_way_list;
         weighted_graph.Branch E =djikstra.FindTheShortestWayTo(4);
         Console.WriteLine(E.vertice);
         Console.WriteLine(E.Weight);
+        Console.ReadKey();
         }
     }
 

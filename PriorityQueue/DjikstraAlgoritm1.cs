@@ -31,7 +31,7 @@ using PriorityQueue;
         }
 
             vertices[procesedGraph.StartingVertice].Weight = 0; /// Do wagi dopisz wyjatek jesli jest ujemna
-        Q.Enqueue(vertices[procesedGraph.StartingVertice]);
+        Q.Enqueue(new Branch(procesedGraph.StartingVertice,0));//Dodajemy pierwszy wierzcholek z 0 waga
     }
     /// <summary>
     /// It will return weight of the shortest way, and vertice before target, this allows to see whole way.
@@ -52,7 +52,8 @@ using PriorityQueue;
                 if(SonsOfProcesedVertice[i].Weight+processedVertice.Weight<vertices[SonsOfProcesedVertice[i].vertice].Weight)
                 {
                     vertices[SonsOfProcesedVertice[i].vertice].Weight = SonsOfProcesedVertice[i].Weight + processedVertice.Weight;
-                    Q.Enqueue(vertices[SonsOfProcesedVertice[i].vertice]);
+                    vertices[SonsOfProcesedVertice[i].vertice].vertice = processedVertice.vertice;
+                    Q.Enqueue(new Branch(SonsOfProcesedVertice[i].vertice,vertices[SonsOfProcesedVertice[i].vertice].Weight));
 
                 }
 
