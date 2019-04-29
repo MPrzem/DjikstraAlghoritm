@@ -85,11 +85,25 @@ namespace weighted_graph
     public class Branch : IComparable<Branch>
     {
         public int vertice { get; set; }
-        public int weight { get; set; }
+        private int weight;
+        public int Weight
+        {
+            get
+            {
+                return weight;
+            }
+            set
+            {
+                if(value<0)
+                    throw new Exception("a weight has to be positive");
+                else
+                weight = value;
+            }
+        }
         public Branch(int vertice, int weight)
         {
             this.vertice = vertice;
-            this.weight = weight;
+            this.Weight = weight;
         }
         /// <summary>
         /// It's needed for priority queue. It's setting priority
@@ -100,9 +114,9 @@ namespace weighted_graph
         {
             if (other == null)
                 return -1;
-            if (this.weight < other.weight)
+            if (this.Weight < other.Weight)
                 return -1;
-            if (this.weight.Equals(other.weight))
+            if (this.Weight.Equals(other.Weight))
                 return 0;
             else
                 return 1;

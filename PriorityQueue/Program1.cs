@@ -10,6 +10,10 @@ using two_way_list;
     {
         static void Main(string[] args)
         {
+        weighted_graph.Weighted_graph graph1= new weighted_graph.Weighted_graph();
+        graph1.download_Graph(@"C:\Users\Student241580\source\repos\PriorityQueue\Graph_test.txt");
+
+        DjikstraAlgoritm1 djikstra = new DjikstraAlgoritm1(graph1);
 
         }
     }
