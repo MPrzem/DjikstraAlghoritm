@@ -158,6 +158,22 @@ namespace two_way_list
             }
             ItemCounter--;
         }
+        /// <summary>
+        ///  TO KONIECZNIE TRZEBA PRZETESTOWAĆ
+        /// </summary>
+        public Type[] ToArray()
+        {
+            if (ItemCounter <= 0)
+                return null;
+            Element iterator = Head;
+            Type[] tmpArray = new Type[ItemCounter];
+            for (int i = 0; i < tmpArray.Length; i++)
+            {
+                tmpArray[i] = iterator.data;
+                iterator = iterator.next;
+            }
+            return tmpArray;
+        }
 
     }
 }

@@ -10,11 +10,13 @@ using two_way_list;
     {
         static void Main(string[] args)
         {
-        weighted_graph.Weighted_graph graph1= new weighted_graph.Weighted_graph();
-        graph1.download_Graph(@"C:\Users\Student241580\source\repos\PriorityQueue\Graph_test.txt");
+        weighted_graph.Weighted_graph graph1= new weighted_graph.Weighted_graph(@"C:\Users\Student241580\source\repos\PriorityQueue\Graph.txt");
+
 
         DjikstraAlgoritm1 djikstra = new DjikstraAlgoritm1(graph1);
-
+        weighted_graph.Branch E =djikstra.FindTheShortestWayTo(4);
+        Console.WriteLine(E.vertice);
+        Console.WriteLine(E.Weight);
         }
     }
 

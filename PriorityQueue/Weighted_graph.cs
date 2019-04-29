@@ -22,7 +22,7 @@ namespace weighted_graph
         /// There is also inicialization
         /// </summary>
         /// <param name="file_Name"></param>
-        public void download_Graph(string file_Name)
+        public Weighted_graph(string file_Name)
         {
             try
             {
@@ -81,6 +81,19 @@ namespace weighted_graph
 
             }
         }
+        ////***************************************************************************** TO TRZEBA PRZETESTOWAĆ
+        /// <summary>
+        /// It gives array of branches for chosed vertice
+        /// </summary>
+        /// <param name="which_vertice"></param>
+        /// <returns></returns>
+        public Branch[] GiveArrayOfBranches(int which_vertice)
+        {
+            if (which_vertice >= NumberOfVertices)
+                throw new ArgumentOutOfRangeException("Wrong index value for GiveFirstOf method");
+            return Incidences_lists[which_vertice].ToArray();
+        }
+
     }
     public class Branch : IComparable<Branch>
     {
@@ -104,6 +117,11 @@ namespace weighted_graph
         {
             this.vertice = vertice;
             this.Weight = weight;
+        }
+        public Branch(Branch tmp)
+        {
+            this.vertice = tmp.vertice;
+            this.Weight = tmp.weight;
         }
         /// <summary>
         /// It's needed for priority queue. It's setting priority
