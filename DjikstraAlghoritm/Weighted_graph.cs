@@ -8,7 +8,7 @@ using two_way_list;
 
 namespace weighted_graph
 {
-    public class Weighted_graph
+    public class Weighted_graph:Igraph
     {
                                  
         public My_list<Branch>[] Incidences_lists { get; private set; }

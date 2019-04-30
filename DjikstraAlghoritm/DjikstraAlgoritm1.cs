@@ -48,9 +48,10 @@ public class DjikstraAlgoritm1
         {
             processedVertice = Q.Dequeue();
             // Real weights from original graph
-            SonsOfProcesedVertice= procesedGraph.Incidences_lists[processedVertice.vertice].ToArray();
+            SonsOfProcesedVertice= procesedGraph.GiveArrayOfBranches(processedVertice.vertice);
             for (int i = 0; i < SonsOfProcesedVertice.Length; i++)
             {
+                if(infinity!=SonsOfProcesedVertice[i].Weight)
                 if(SonsOfProcesedVertice[i].Weight+processedVertice.Weight<vertices[SonsOfProcesedVertice[i].vertice].Weight)
                 {
                     vertices[SonsOfProcesedVertice[i].vertice].Weight = SonsOfProcesedVertice[i].Weight + processedVertice.Weight;
@@ -111,5 +112,10 @@ public class DjikstraAlgoritm1
             Console.WriteLine(e.ToString());
         }
     }
-    }
+}
 
+	
+interface Igraph
+{
+     Branch[] GiveArrayOfBranches(int which_vertice);
+}

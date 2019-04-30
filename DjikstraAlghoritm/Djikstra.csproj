@@ -49,6 +49,7 @@
     <Compile Include="Program1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Weighted_graph.cs" />
+    <Compile Include="WeightegGraphMatrix.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
