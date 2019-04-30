@@ -50,6 +50,7 @@ namespace weighted_graph
             }
 
         }
+
         private void decodeFirstLine(string line)
         {
             string[] tmp_strings;
