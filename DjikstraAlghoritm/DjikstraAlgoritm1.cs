@@ -114,12 +114,52 @@ public class DjikstraAlgoritm1
     }
 }
 
-	
+
 public abstract class Graph
 {
-    public readonly char Separator = '\t';
+    protected readonly char Separator = '\t';
+    protected readonly int infinity = int.MaxValue;
     public int NumberOfVertices { get; protected set; }
     public int NumberOfBranches { get; protected set; }
     public int StartingVertice { get; protected set; }
     public abstract Branch[] GiveArrayOfBranches(int which_vertice);
+    /// <summary>
+    /// Is required to use this before using FindEmptySon
+    /// </summary>
+    /// <returns></returns>
+    protected int RandomFather()
+    {
+        Random rand = new Random();
+        int father_vertice;
+        do
+        {
+            father_vertice = rand.Next(0, NumberOfVertices);
+
+        } while (wasEverySonDrawn(father_vertice));
+        return father_vertice;
+    }
+    /// <summary>
+    /// Please use only if you had choosed correct father by RandomFather
+    /// </summary>
+    /// <param name="father_vertice"></param>
+    /// <returns></returns>
+    protected int FindEmptySon(int father_vertice)
+    {
+        int son_vertice;
+        int i = 0;
+        Random rand = new Random();
+        do
+        {
+            son_vertice = rand.Next(0, NumberOfVertices);
+            if (isThisSonEmpty(father_vertice,son_vertice))
+            {
+                return son_vertice;
+            }
+            i++;
+        } while (true); ///Przy dobrym  wybraniu ojca ta pętla skoćzy się zawsze
+
+
+    }
+    protected abstract bool wasEverySonDrawn(int starting_vertice);
+    protected abstract bool isThisSonEmpty(int father_vertice, int son_vertice);
 }

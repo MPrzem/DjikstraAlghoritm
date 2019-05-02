@@ -91,6 +91,13 @@ namespace weighted_graph
                 throw new ArgumentOutOfRangeException("Wrong index value for GiveFirstOf method");
             return Incidences_lists[which_vertice].ToArray();
         }
+        protected override bool isThisSonEmpty(int father_vertice,int son_vertice) {
+            return true;
+        }
+        protected override bool wasEverySonDrawn(int starting_vertice)
+        {
+            return true;
+        }
 
     }
     public class Branch : IComparable<Branch>

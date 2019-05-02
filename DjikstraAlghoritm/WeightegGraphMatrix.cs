@@ -41,6 +41,30 @@ namespace WeightedGraphMatrix
             }
 
         }
+        //ACHTUNG ACHTUNG
+        public WeightedGraphMatrix(int numberOfVertices,int numberOfBranches, int startingVertice = 0)
+        {
+            if (numberOfBranches > numberOfVertices * (numberOfVertices - 1))
+                throw new InvalidDataException("Podano zbyt dużą liczbę gałęzi");
+
+            this.NumberOfVertices = numberOfVertices;
+            this.NumberOfBranches = numberOfBranches;
+            setGraph();
+            Random rand = new Random();
+            int father_vertice;
+            int son_vertice;
+            int i = 0;
+            while (numberOfBranches > i)
+            {
+                father_vertice = RandomFather();
+                son_vertice = FindEmptySon(father_vertice);
+                incidencesMatrix[father_vertice][son_vertice] = rand.Next(5, 100);
+                i++;
+
+            }
+        }
+ 
+        
 
         private void decodeFirstLine(string line)
         {
@@ -72,10 +96,28 @@ namespace WeightedGraphMatrix
                 incidencesMatrix[i] = new int[NumberOfVertices];
                 for (int j = 0; j < incidencesMatrix[i].Length; j++)
                 {
-                    incidencesMatrix[i][j] = int.MaxValue;
+                    incidencesMatrix[i][j] = infinity;
+                    if (i == j)
+                        incidencesMatrix[i][j] = 0;
 
                 }
             }
+        }
+        protected override bool wasEverySonDrawn(int starting_vertice)
+        {
+            int i = 0;
+            do
+            {
+                if (incidencesMatrix[starting_vertice][i] == infinity)
+                    return false;
+                i++;
+
+            } while (i < NumberOfVertices);
+            return true;
+        }
+        protected override bool isThisSonEmpty(int father_vertice, int son_vertice)
+        {
+            return incidencesMatrix[father_vertice][son_vertice] == infinity;
         }
         /// <summary>
         /// Zwraca wektor galezi dla danego wierzcholka
