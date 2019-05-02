@@ -8,14 +8,11 @@ using two_way_list;
 
 namespace weighted_graph
 {
-    public class Weighted_graph:Igraph
+    public class Weighted_graph:Graph
     {
                                  
         public My_list<Branch>[] Incidences_lists { get; private set; }
-        const char Separator = '\t';
-        public int NumberOfVertices { get;private set; }
-        public int NumberOfBranches { get;private set; }
-        public int StartingVertice { get;private set; }
+
 
 
         /// <summary>
@@ -88,7 +85,7 @@ namespace weighted_graph
         /// </summary>
         /// <param name="which_vertice"></param>
         /// <returns></returns>
-        public Branch[] GiveArrayOfBranches(int which_vertice)
+        public override Branch[] GiveArrayOfBranches(int which_vertice)
         {
             if (which_vertice >= NumberOfVertices)
                 throw new ArgumentOutOfRangeException("Wrong index value for GiveFirstOf method");

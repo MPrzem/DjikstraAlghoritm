@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DjikstraAlgoritm1.cs" />
     <Compile Include="List.cs" />
+    <Compile Include="measurement_of_processing_time.cs" />
     <Compile Include="PriorityQueue.cs" />
     <Compile Include="Program1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

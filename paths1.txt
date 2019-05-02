@@ -1,0 +1,8 @@
+Koszt najkrótszej drogi do 1 z 0 wynosi: Między wierzchołkami nie ma ścieżki
+Koszt najkrótszej drogi do 1 z 1 wynosi: 0
+Kolejnymi wierzchołkami na tej drodze są: 
+Koszt najkrótszej drogi do 1 z 2 wynosi: Wierzchołki są sąsiadami
+Koszt najkrótszej drogi do 1 z 3 wynosi: Między wierzchołkami nie ma ścieżki
+Koszt najkrótszej drogi do 1 z 4 wynosi: Między wierzchołkami nie ma ścieżki
+
+Bye!

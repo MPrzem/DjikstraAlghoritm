@@ -11,7 +11,7 @@ public class DjikstraAlgoritm1
     {
     public readonly int infinity = int.MaxValue;
     int target;
-    Weighted_graph procesedGraph; ////TUtaj dodać brak edycji
+    Graph procesedGraph; ////TUtaj dodać brak edycji
     /// <summary>
     /// Branch in this context means vertice with cost of way form start to him
     /// </summary>
@@ -20,7 +20,7 @@ public class DjikstraAlgoritm1
     /// There branch.vertice means father of this vertice and weight means total weight
     /// </summary>
     public Branch[] vertices { get; private set; }// a moze tutaj referencje? Jednak nie, edycja kluczy poza kolejka to slaby pomysl. wierzcholek poprzedni czym wypelnić? Null?
-    public DjikstraAlgoritm1(Weighted_graph downloadedGraph)///Napisać rano do tego test jednostkowy
+    public DjikstraAlgoritm1(Graph downloadedGraph)///Napisać rano do tego test jednostkowy
     {
         procesedGraph = downloadedGraph;
         Q = new PriorityQueue<Branch>();
@@ -115,7 +115,11 @@ public class DjikstraAlgoritm1
 }
 
 	
-interface Igraph
+public abstract class Graph
 {
-     Branch[] GiveArrayOfBranches(int which_vertice);
+    public readonly char Separator = '\t';
+    public int NumberOfVertices { get; protected set; }
+    public int NumberOfBranches { get; protected set; }
+    public int StartingVertice { get; protected set; }
+    public abstract Branch[] GiveArrayOfBranches(int which_vertice);
 }

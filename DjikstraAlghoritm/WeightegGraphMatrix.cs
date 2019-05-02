@@ -8,14 +8,11 @@ using weighted_graph;
 
 namespace WeightedGraphMatrix
 {
-    public class WeightedGraphMatrix : Igraph
+    public class WeightedGraphMatrix : Graph
     {
 
         public int[][] incidencesMatrix { get; private set; }
-        const char Separator = '\t';
-        public int NumberOfVertices { get; private set; }
-        public int NumberOfBranches { get; private set; }
-        public int StartingVertice { get; private set; }
+
         public WeightedGraphMatrix(string file_Name)
         {
             try
@@ -85,7 +82,7 @@ namespace WeightedGraphMatrix
         /// </summary>
         /// <param name="which_vertice"></param>
         /// <returns></returns>
-        public Branch[] GiveArrayOfBranches(int which_vertice)
+        public override Branch[] GiveArrayOfBranches(int which_vertice)
         {
             if (which_vertice >= NumberOfVertices)
                 throw new ArgumentOutOfRangeException("Wrong index value for GiveFirstOf method");
@@ -96,5 +93,7 @@ namespace WeightedGraphMatrix
             }
             return tmp;
         }
+
+
     }
 }
