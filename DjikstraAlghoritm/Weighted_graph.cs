@@ -144,5 +144,17 @@ namespace weighted_graph
             else
                 return 1;
         }
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(Branch)) { 
+
+                Branch tmp = (Branch)obj;
+                if (tmp.weight == this.weight && tmp.vertice == this.vertice)
+                    return true;
+                else return false;
+
+            }
+            return base.Equals(obj);
+        }
     }
 }
