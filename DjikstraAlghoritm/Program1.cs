@@ -17,7 +17,9 @@ using two_way_list;
               Console.WriteLine(E.vertice);
               Console.WriteLine(E.Weight);
               djikstra.saveToFile(@"C:\Users\Student241580\source\repos\PriorityQueue\paths1.txt");*/
-        WeightedGraphMatrix.WeightedGraphMatrix graf = new WeightedGraphMatrix.WeightedGraphMatrix(3, 6);
+        WeightedGraphMatrix.WeightedGraphMatrix graf = new WeightedGraphMatrix.WeightedGraphMatrix(100,100*99 );
+        weighted_graph.Weighted_graph graf1 = new weighted_graph.Weighted_graph(10,10*9);
+    
 
         Console.ReadKey();
         }

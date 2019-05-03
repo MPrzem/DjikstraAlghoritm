@@ -174,6 +174,5 @@ namespace two_way_list
             }
             return tmpArray;
         }
-
     }
 }

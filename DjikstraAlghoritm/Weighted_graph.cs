@@ -48,6 +48,34 @@ namespace weighted_graph
 
         }
 
+        public Weighted_graph(int numberOfVertices, int numberOfBranches, int startingVertice = 0)
+        {
+            if (numberOfBranches > numberOfVertices * (numberOfVertices - 1))
+                throw new InvalidDataException("Podano zbyt dużą liczbę gałęzi");
+
+            this.NumberOfVertices = numberOfVertices;
+            this.NumberOfBranches = numberOfBranches;
+            setGraph();
+            Random rand = new Random();
+            int weight;
+            int father_vertice;
+            int son_vertice;
+            int i = 0;
+            while (numberOfBranches > i)
+            {
+                //// TO TRZEBA PRZEROBIC POD TEN TYP GRAFU
+                father_vertice = RandomFather();
+                son_vertice = FindEmptySon(father_vertice);
+                if (son_vertice != father_vertice)
+                {
+                    weight = rand.Next(5, 100);
+                    Incidences_lists[father_vertice].InsertLast(new Branch(son_vertice, weight));
+                    i++;
+                }
+
+            }
+        }
+
         private void decodeFirstLine(string line)
         {
             string[] tmp_strings;
@@ -92,11 +120,20 @@ namespace weighted_graph
             return Incidences_lists[which_vertice].ToArray();
         }
         protected override bool isThisSonEmpty(int father_vertice,int son_vertice) {
+            Branch[] array = GiveArrayOfBranches(father_vertice);
+            for (int i = 0; i <array.Length; i++)
+            {
+                if (array[i].vertice == son_vertice)
+                    return false;
+            }
             return true;
         }
         protected override bool wasEverySonDrawn(int starting_vertice)
         {
-            return true;
+            if (GiveArrayOfBranches(starting_vertice).Length == NumberOfVertices)
+                return true;
+            else
+                return false;
         }
 
     }
@@ -156,5 +193,6 @@ namespace weighted_graph
             }
             return base.Equals(obj);
         }
+        
     }
 }
