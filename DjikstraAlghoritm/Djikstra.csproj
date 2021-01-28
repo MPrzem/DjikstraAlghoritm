@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DjikstraAlgoritm1.cs" />
+    <Compile Include="DjikstraAlgoritm.cs" />
     <Compile Include="List.cs" />
     <Compile Include="measurement_of_processing_time.cs" />
     <Compile Include="PriorityQueue.cs" />
@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

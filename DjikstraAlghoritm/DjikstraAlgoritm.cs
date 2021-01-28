@@ -7,7 +7,7 @@ using weighted_graph;
 using PriorityQueue;
 using System.IO;
 
-public class DjikstraAlgoritm1
+public class DjikstraAlgoritm
     {
     public readonly int infinity = int.MaxValue;
     int target;
@@ -20,7 +20,7 @@ public class DjikstraAlgoritm1
     /// There branch.vertice means father of this vertice and weight means total weight
     /// </summary>
     public Branch[] vertices { get; private set; }// a moze tutaj referencje? Jednak nie, edycja kluczy poza kolejka to slaby pomysl. wierzcholek poprzedni czym wypelnić? Null?
-    public DjikstraAlgoritm1(Graph downloadedGraph)///Napisać rano do tego test jednostkowy
+    public DjikstraAlgoritm(Graph downloadedGraph)///Napisać rano do tego test jednostkowy
     {
         procesedGraph = downloadedGraph;
         Q = new PriorityQueue<Branch>();
@@ -82,6 +82,7 @@ public class DjikstraAlgoritm1
                     file.WriteLine("Między wierzchołkami nie ma ścieżki");
                 else
                 {
+                    file.WriteLine(vertices[i].Weight);
                     if (vertices[i].vertice == procesedGraph.StartingVertice)
                         file.Write("Wierzchołki są sąsiadami");
                     else
@@ -89,7 +90,7 @@ public class DjikstraAlgoritm1
                         file.WriteLine(vertices[i].Weight);
                         file.Write("Kolejnymi wierzchołkami na tej drodze są: ");
 
-                        int j = i;/// nei wiem czy to zadziałą
+                        int j = i;
                                   ///if son is exist and if they are not a neighbors
                         while (vertices[j].vertice != infinity)
                         {
